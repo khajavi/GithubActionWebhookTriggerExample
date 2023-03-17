@@ -2,7 +2,8 @@ name: CI
 on:
   push: {}
 jobs:
-  trigger-external-workflow:
+  trigger-external-workflow: 
+    permissions: read-all|write-all
     runs-on: ubuntu-latest
     steps:
       - run: echo "Started Workflow"
