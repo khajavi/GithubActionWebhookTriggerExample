@@ -4,7 +4,7 @@ on:
 jobs:
   trigger-external-workflow: 
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions: write-all|read-all
     steps:
       - run: echo "Started Workflow"
       - run: | 
