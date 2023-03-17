@@ -3,8 +3,8 @@ on:
   push: {}
 jobs:
   trigger-external-workflow: 
-    permissions: read-all|write-all
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - run: echo "Started Workflow"
       - run: | 
