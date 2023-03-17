@@ -12,4 +12,4 @@ jobs:
            -H "Accept: application/vnd.github+json" \
            -H "Authorization: Bearer ${{ secrets.PAT }}"\
              https://api.github.com/repos/khajavi/GithubActionWebhookExample/dispatches \
-             -d '{"event_type":"update-docs"}'
+             -d '{"event_type":"update-docs","client_payload":{"project":"github-action-webhook-trigger"}}'
