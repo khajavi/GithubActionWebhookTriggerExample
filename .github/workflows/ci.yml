@@ -1,6 +1,9 @@
 name: CI
 on:
   push: {}
+  release:
+    types:
+      - published
 jobs:
   trigger-external-workflow: 
     runs-on: ubuntu-latest
