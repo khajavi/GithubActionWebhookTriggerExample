@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Started Workflow"
+      - name: Print Event Object
+        run: echo '${{ toJson(github) }}'
       - run: | 
          version=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
          curl -L \
