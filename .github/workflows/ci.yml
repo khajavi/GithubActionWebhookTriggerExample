@@ -20,7 +20,7 @@ jobs:
              -d '{
                 "event_type":"update-docs",
                 "client_payload":{
-                  "package_name":"github-action-webhook-trigger", 
-                  "package_version": "'"${version}"'"
+                  "package_name":"@zio.dev/zio-constraintless", 
+                  "package_version": "v0.3.1"
                 }
              }'
