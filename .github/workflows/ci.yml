@@ -20,7 +20,7 @@ jobs:
              -d '{
                 "event_type":"update-docs",
                 "client_payload":{
-                  "project":"github-action-webhook-trigger", 
-                  "version": "'"${version}"'"
+                  "package_name":"github-action-webhook-trigger", 
+                  "package_version": "'"${version}"'"
                 }
              }'
