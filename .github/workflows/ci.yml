@@ -12,6 +12,8 @@ jobs:
     permissions:
       contents: write
       issues: write
+      actions: read
+      checks: write
     steps:
       - run: echo "Started Workflow"
       - name: Print Event Object
@@ -38,17 +40,6 @@ jobs:
           -d '{
             "title": "Push detected on ${{ steps.date.outputs.date }}",
             "body": "A push event was detected.\nBranch: ${{ github.ref_name }}"
-          }'
-      - name: Create Issue
-        run: |
-          curl -X POST \
-          -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{ github.repository }}/issues \
-          -d '{
-            "title": "Test Issue from CI",
-            "body": "This is a test issue created from CI job.\n\nTriggered by: ${{ github.event.head_commit.message }}\nCommit: ${{ github.sha }}",
-            "labels": ["automated", "test"]
           }'
       - name: "dispatch"
         run: | 
