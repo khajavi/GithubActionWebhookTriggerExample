@@ -23,7 +23,7 @@ jobs:
 #          app_id: ${{ secrets.APP_ID }}
 #          app_private_key: ${{ secrets.APP_SECRET }}
       - name: Generate a token
-        id: generate-token
+        id: generate_token
         uses: actions/create-github-app-token@v1.11.1
         with:
           app-id: ${{ secrets.APP_ID }}
