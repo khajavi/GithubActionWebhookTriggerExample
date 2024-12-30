@@ -16,20 +16,20 @@ jobs:
       - run: echo "Started Workflow"
       - name: Print Event Object
         run: echo '${{ toJson(github) }}'
-#      - name: Generate Token
-#        id: generate-token
-#        uses: zio/generate-github-app-token@v1.0.0
-#        with:
-#          app_id: ${{ secrets.APP_ID }}
-#          app_private_key: ${{ secrets.APP_SECRET }}
-      - name: Generate a token
+      - name: Generate Token
         id: generate-token
-        uses: actions/create-github-app-token@v1.11.1
+        uses: zio/generate-github-app-token@v1.0.0
         with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_SECRET }}
-          # Set the owner, so the token can be used in all repositories
-          owner: ${{ github.repository_owner }}
+          app_id: ${{ secrets.APP_ID }}
+          app_private_key: ${{ secrets.APP_SECRET }}
+#      - name: Generate a token
+#        id: generate-token
+#        uses: actions/create-github-app-token@v1.11.1
+#        with:
+#          app-id: ${{ secrets.APP_ID }}
+#          private-key: ${{ secrets.APP_SECRET }}
+#           Set the owner, so the token can be used in all repositories
+#          owner: ${{ github.repository_owner }}
       - name: Create Issue with Minimal Info 2
         run: |
           curl -X POST \
