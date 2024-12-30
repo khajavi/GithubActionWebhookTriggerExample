@@ -9,6 +9,7 @@ on:
 jobs:
   trigger-external-workflow: 
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - run: echo "Started Workflow"
       - name: Print Event Object
@@ -20,7 +21,6 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           app_private_key: ${{ secrets.APP_SECRET }}
       - name: "dispatch"
-        permissions: write-all
         run: | 
          version=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
          curl -L \
