@@ -1,5 +1,8 @@
 name: CI
 on:
+  push:
+    branches:
+      - '**'  # This will trigger on all branches
   release:
     types:
       - published
