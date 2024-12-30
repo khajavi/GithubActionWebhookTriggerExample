@@ -29,6 +29,17 @@ jobs:
           private-key: ${{ secrets.APP_SECRET }}
           # Set the owner, so the token can be used in all repositories
           owner: ${{ github.repository_owner }}
+      - name: Create Issue
+        run: |
+          curl -X POST \
+          -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/issues \
+          -d '{
+            "title": "Test Issue from CI",
+            "body": "This is a test issue created from CI job.\n\nTriggered by: ${{ github.event.head_commit.message }}\nCommit: ${{ github.sha }}",
+            "labels": ["automated", "test"]
+          }'
       - name: "dispatch"
         run: | 
          version=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
