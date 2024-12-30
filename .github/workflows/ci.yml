@@ -6,7 +6,8 @@ on:
   release:
     types:
       - published
-permissions: write-all
+permissions:
+  contents: write
 jobs:
   trigger-external-workflow:
     runs-on: ubuntu-latest
