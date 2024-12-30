@@ -11,17 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
+      attestations: write
       checks: write
       contents: write
       deployments: write
+      id-token: write
+      discussions: write
       issues: write
+      pages: write
       packages: write
       pull-requests: write
       repository-projects: write
       security-events: write
       statuses: write
-      administration: write
-      permissions: write-all
     #      issues: write
 #      actions: write
 #      checks: write
