@@ -28,7 +28,6 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_SECRET }}
-           Set the owner, so the token can be used in all repositories
           owner: ${{ github.repository_owner }}
       - name: Create Issue with Minimal Info 2
         run: |
