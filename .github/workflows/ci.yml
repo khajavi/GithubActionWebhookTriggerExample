@@ -9,9 +9,9 @@ on:
 jobs:
   trigger-external-workflow:
     runs-on: ubuntu-latest
-#    permissions:
-#      contents: write
-#      issues: write
+    permissions:
+      contents: write
+      issues: write
     steps:
       - run: echo "Started Workflow"
       - name: Print Event Object
