@@ -9,9 +9,9 @@ on:
 jobs:
   trigger-external-workflow:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
+#    permissions:
+#      contents: write
+#      issues: write
     steps:
       - run: echo "Started Workflow"
       - name: Print Event Object
@@ -23,7 +23,7 @@ jobs:
 #          app_id: ${{ secrets.APP_ID }}
 #          app_private_key: ${{ secrets.APP_SECRET }}
       - name: Generate a token
-        id: generate_token
+        id: generate-token
         uses: actions/create-github-app-token@v1.11.1
         with:
           app-id: ${{ secrets.APP_ID }}
