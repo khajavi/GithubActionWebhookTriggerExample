@@ -19,7 +19,9 @@ jobs:
         with:
           app_id: ${{ secrets.APP_ID }}
           app_private_key: ${{ secrets.APP_SECRET }}
-      - run: | 
+      - name: "dispatch"
+        permissions: write-all
+        run: | 
          version=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
          curl -L \
            -X POST \
