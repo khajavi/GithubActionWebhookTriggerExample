@@ -10,7 +10,7 @@ jobs:
   trigger-external-workflow:
     runs-on: ubuntu-latest
     permissions:
-      Contents: write
+      contents: write
 #      issues: write
 #      actions: write
 #      checks: write
