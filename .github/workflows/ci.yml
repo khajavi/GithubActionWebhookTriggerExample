@@ -22,14 +22,14 @@ jobs:
         with:
           app_id: ${{ secrets.APP_ID }}
           app_private_key: ${{ secrets.APP_SECRET }}
-#      - name: Generate a token
-#        id: generate-token
-#        uses: actions/create-github-app-token@v1.11.1
-#        with:
-#          app-id: ${{ secrets.APP_ID }}
-#          private-key: ${{ secrets.APP_SECRET }}
-#           Set the owner, so the token can be used in all repositories
-#          owner: ${{ github.repository_owner }}
+      - name: Generate a token
+        id: generate-tokens
+        uses: actions/create-github-app-token@v1.11.1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_SECRET }}
+           Set the owner, so the token can be used in all repositories
+          owner: ${{ github.repository_owner }}
       - name: Create Issue with Minimal Info 2
         run: |
           curl -X POST \
@@ -57,7 +57,7 @@ jobs:
          curl -L \
            -X POST \
            -H "Accept: application/vnd.github+json" \
-           -H "Authorization: token ${{ steps.generate-token.outputs.token }}"\
+           -H "Authorization: token ${{ steps.generate-tokens.outputs.token }}"\
              https://api.github.com/repos/shomabegoo/GithubActionWebhookExample/dispatches \
              -d '{
                 "event_type":"update-docs",
